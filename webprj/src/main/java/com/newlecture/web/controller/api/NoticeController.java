@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.newlecture.web.entity.Notice;
@@ -19,10 +20,10 @@ public class NoticeController {
 	private NoticeService service;
 
 	@RequestMapping("list")
-	public String list(HttpServletRequest request) throws ClassNotFoundException, SQLException {
+	public String list(@RequestParam(name="p", required=true)Integer page) throws ClassNotFoundException, SQLException {
 	
-		String p = request.getParameter("p");
-		System.out.println(p);
+//		String p = request.getParameter("p");
+		System.out.println("page:"+page);
 //		List<Notice> list = service.getList(1, "title", "");
 		
 		
